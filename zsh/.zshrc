@@ -27,7 +27,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git nvm node)
+plugins=(git nvm node gradle kubectl)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -64,3 +64,5 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/home/fr1zle/.sdkman"
 [[ -s "/home/fr1zle/.sdkman/bin/sdkman-init.sh" ]] && source "/home/fr1zle/.sdkman/bin/sdkman-init.sh"
+
+export PATH=$PATH:$HOME/.local/bin
