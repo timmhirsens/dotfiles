@@ -27,6 +27,7 @@ Plug 'tpope/vim-commentary'
 Plug 'machakann/vim-highlightedyank'
 Plug 'itchyny/lightline.vim'
 Plug 'neovim/nvim-lspconfig'
+Plug 'airblade/vim-gitgutter'
 
 call plug#end()
 
