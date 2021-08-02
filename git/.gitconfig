@@ -1,0 +1,13 @@
+[user]
+	email = timm@hirsens.eu
+    name = Timm Hirsens
+
+
+[pager]
+    diff = delta
+    log = delta
+    reflog = delta
+    show = delta
+
+[pull]
+	rebase = true
