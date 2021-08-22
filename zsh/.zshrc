@@ -27,7 +27,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git nvm node gradle kubectl)
+plugins=(git node gradle kubectl)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -55,13 +55,8 @@ fi
 alias vim="nvim"
 alias bat="batcat --theme=TwoDark"
 alias cat="batcat --theme=TwoDark --paging=never"
-
 # golang
 export PATH=$PATH:/usr/local/go/bin
-
-# nvim
-export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
@@ -73,3 +68,7 @@ export PATH=$PATH:$HOME/.local/bin
 export PATH="$PATH:$HOME/.rvm/bin"
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
+# fnm
+export PATH=/home/timm/.fnm:$PATH
+eval "`fnm env`"
