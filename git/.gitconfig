@@ -1,7 +1,10 @@
-[user]
-	email = timmhirsens@gmail.com
-    name = Timm Hirsens
-
+# Thanks Michael: https://info.michael-simons.eu/2018/06/25/use-different-git-usernames-and-emails-for-work-and-play/
+[includeIf "gitdir:~/work/"]
+  path = .gitconfig-work
+[includeIf "gitdir:~/personal/"]
+  path = .gitconfig-play
+[includeIf "gitdir:~/"]
+  path = .gitconfig-play
 
 [pager]
     diff = delta
