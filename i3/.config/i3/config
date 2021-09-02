@@ -37,6 +37,7 @@ exec picom
 exec --no-startup-id feh --bg-scale ~/Pictures/audibg.jpg
 exec redshift-gtk
 exec 1password --silent
+exec --no-startup-id polybar top
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -186,7 +187,9 @@ bindsym $mod+r mode "resize"
 
 for_window [class="(?i)(?:1password)"] floating enable, focus
 
-new_window normal 1
+for_window [class=".*"] border pixel 0
+
+gaps inner 5
 
 ## Base16 OneDark
 # Author: Lalit Magant (http://github.com/tilal6991)
@@ -211,22 +214,22 @@ set $base0E #c678dd
 set $base0F #be5046
 
 # Basic bar configuration using the Base16 variables.
-bar {
-    status_command i3status
+# bar {
+#     status_command i3status
 
-    colors {
-        background $base00
-        separator  $base0D
-        statusline $base05
+#     colors {
+#         background $base00
+#         separator  $base0D
+#         statusline $base05
 
-        # State             Border  BG      Text
-        focused_workspace   $base05 $base0B $base00
-        active_workspace    $base05 $base03 $base00
-        inactive_workspace  $base03 $base01 $base05
-        urgent_workspace    $base08 $base08 $base00
-        binding_mode        $base00 $base0A $base00
-    }
-}
+#         # State             Border  BG      Text
+#         focused_workspace   $base05 $base0B $base00
+#         active_workspace    $base05 $base03 $base00
+#         inactive_workspace  $base03 $base01 $base05
+#         urgent_workspace    $base08 $base08 $base00
+#         binding_mode        $base00 $base0A $base00
+#     }
+# }
 
 # Basic color configuration using the Base16 variables for windows and borders.
 # Property Name         Border  BG      Text    Indicator Child Border
