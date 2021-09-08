@@ -39,7 +39,7 @@ exec --no-startup-id feh --bg-scale ~/Pictures/audibg.jpg
 exec redshift-gtk
 exec 1password --silent
 exec --no-startup-id polybar top
-exec --no-startup-id xautolock -detectsleep -time 15 -locker '~/.config/i3/screen_lock.sh' &
+exec --no-startup-id xautolock -detectsleep -time 15 -locker '~/.config/i3/lock_screen.sh' &
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
