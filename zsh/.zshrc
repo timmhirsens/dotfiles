@@ -57,8 +57,8 @@ fi
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 alias vim="nvim"
-alias bat="batcat --theme=TwoDark"
-alias cat="batcat --theme=TwoDark --paging=never"
+alias bat="bat --theme=TwoDark"
+alias cat="bat --theme=TwoDark --paging=never"
 # golang
 export PATH=$PATH:/usr/local/go/bin
 
