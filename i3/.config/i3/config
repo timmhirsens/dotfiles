@@ -187,7 +187,7 @@ bindsym $mod+r mode "resize"
 
 for_window [class="(?i)(?:1password)"] floating enable, focus
 
-for_window [class=".*"] border pixel 2
+for_window [class=".*"] border pixel 1
 
 assign [class="Slack"] 4
 assign [class="Microsoft Teams"] 4
