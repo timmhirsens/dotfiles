@@ -31,7 +31,7 @@ eval "$(starship init zsh)"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 
-plugins=(git node gradle kubectl)
+plugins=(git node gradle kubectl zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 

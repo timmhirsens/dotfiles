@@ -2,7 +2,7 @@
 # I am using zsh instead of bash.  I was having some troubles using bash with
 # arrays.  Didn't want to investigate, so I just did zsh
 DOTFILES=$HOME/.dotfiles
-STOW_FOLDERS="alacritty,git,i3,i3status,ideavim,kitty,nvim,redshift,rofi,tmux,zsh,dunst,picom,polybar"
+STOW_FOLDERS="alacritty,git,i3,i3status,ideavim,kitty,nvim,redshift,rofi,tmux,zsh,dunst,picom,polybar,vifm"
 pushd $DOTFILES
 for folder in $(echo $STOW_FOLDERS | sed "s/,/ /g")
 do
