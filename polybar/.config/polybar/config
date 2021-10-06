@@ -38,6 +38,63 @@ blue = #61afef
 magenta = #c678dd
 darkred = #be5046
 
+[bar/bspwm]
+;monitor = ${env:MONITOR:HDMI-1}
+width = 100%
+height = 25
+;offset-x = 1%
+;offset-y = 1%
+radius = 0.0
+fixed-center = true
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+line-size = 1
+line-color = #f00
+
+border-bottom-size = 0
+border-top-size = 0
+border-right-size = 0
+border-left-size = 0
+border-color = #00000000
+
+padding-left = 0
+padding-right = 2
+
+module-margin-left = 1
+module-margin-right = 2
+
+font-0 = JetBrains Mono:pixelsize=10;1
+font-1 = Font Awesome 5 Free Solid:size=10:1 
+font-2 = Font Awesome 5 Free:size=10:1
+font-3 = Font Awesome 5 Brands:size=10:1
+
+modules-left = bspwm
+modules-center = xwindow
+modules-right = pulseaudio xkeyboard memory cpu wlan eth battery temperature date
+
+tray-position = right
+tray-padding = 2
+;tray-background = #0063ff
+
+;wm-restack = generic
+;wm-restack = bspwm
+wm-restack = bspwm
+
+;override-redirect = true
+
+;scroll-up = bspwm-desknext
+;scroll-down = bspwm-deskprev
+
+;scroll-up = i3wm-wsnext
+;scroll-down = i3wm-wsprev
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+enable-ipc = true
+
 [bar/top]
 ;monitor = ${env:MONITOR:HDMI-1}
 width = 100%
@@ -54,9 +111,9 @@ line-size = 1
 line-color = #f00
 
 border-bottom-size = 0
-border-top-size = 5
-border-right-size = 5
-border-left-size = 5
+border-top-size = 0
+border-right-size = 0
+border-left-size = 0
 border-color = #00000000
 
 padding-left = 0
@@ -72,7 +129,7 @@ font-3 = Font Awesome 5 Brands:size=10:1
 
 modules-left = i3
 modules-center = xwindow
-modules-right = pulseaudio xkeyboard memory cpu wlan eth battery temperature date powermenu
+modules-right = pulseaudio xkeyboard memory cpu wlan eth battery temperature date
 
 tray-position = right
 tray-padding = 2
@@ -139,32 +196,98 @@ label-mode-foreground = #000
 label-mode-background = ${colors.primary}
 
 ; focused = Active workspace on focused monitor
-label-focused = %name%:%icon% 
+label-focused = %name% %icon% 
 label-focused-background = ${colors.background-alt}
 label-focused-underline= ${colors.primary}
 label-focused-padding = 1
 
 ; unfocused = Inactive workspace on any monitor
-label-unfocused = %name%:%icon%
+label-unfocused = %name% %icon%
 label-unfocused-padding = 1
 
 ; visible = Active workspace on unfocused monitor
-label-visible = %name%:%icon%
+label-visible = %name% %icon%
 label-visible-background = ${self.label-focused-background}
 label-visible-underline = ${self.label-focused-underline}
 label-visible-padding = ${self.label-focused-padding}
 
 ; urgent = Workspace with urgency hint set
-label-urgent = %name%:%icon%
+label-urgent = %name% %icon%
 label-urgent-background = ${colors.alert}
 label-urgent-padding = 1
 
 ; Separator in between workspaces
 ; label-separator = |
-ws-icon-0 = "1;"
-ws-icon-1 = "2;"
+ws-icon-0 = "1;"
+ws-icon-1 = "2;"
 ws-icon-2 = 3;
 ws-icon-3 = 4;
+ws-icon-4 = 5;
+ws-icon-5 = 6;
+ws-icon-6 = 7;
+ws-icon-7 = 8;
+ws-icon-8 = 9;
+ws-icon-9 = 10;
+ws-icon-default = 
+
+[module/bspwm]
+type = internal/bspwm
+pin-workspaces = true
+inline-mode = false
+enable-click = true
+enable-scroll = false
+reverse-scroll = false
+fuzzy-match = false
+; 
+; Available tags:
+;   <label-monitor>
+;   <label-state> - gets replaced with <label-(focused|urgent|occupied|empty)>
+;   <label-mode> - gets replaced with <label-(monocle|tiled|fullscreen|floating|locked|sticky|private)>
+; Default: <label-state>
+format = <label-state> <label-mode>
+
+label-mode-padding = 1
+label-mode-foreground = #000
+label-mode-background = ${colors.primary}
+
+; focused = Active workspace on focused monitor
+label-focused = %name% %icon% 
+label-focused-background = ${colors.background-alt}
+label-focused-underline= ${colors.primary}
+label-focused-padding = 1
+
+; unfocused = Inactive workspace on any monitor
+label-occupied = %name% %icon%
+label-occupied-padding = 1
+label-occupied-underline = ${colors.foreground-alt}
+
+; unfocused = Inactive workspace on any monitor
+label-empty = %name% %icon%
+label-empty-padding = 1
+
+; visible = Active workspace on unfocused monitor
+label-visible = %name% %icon%
+label-visible-background = ${self.label-focused-background}
+label-visible-underline = ${self.label-focused-underline}
+label-visible-padding = ${self.label-focused-padding}
+
+; urgent = Workspace with urgency hint set
+label-urgent = %name% %icon%
+label-urgent-background = ${colors.alert}
+label-urgent-padding = 1
+
+; Separator in between workspaces
+; label-separator = |
+ws-icon-0 = "1;"
+ws-icon-1 = "2;"
+ws-icon-2 = 3;
+ws-icon-3 = 4;
+ws-icon-4 = 5;
+ws-icon-5 = 6;
+ws-icon-6 = 7;
+ws-icon-7 = 8;
+ws-icon-8 = 9;
+ws-icon-9 = 10;
 ws-icon-default = 
 
 [module/mpd]
@@ -216,7 +339,7 @@ interval = 2
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = #4bffdc
-label = %percentage_used%%
+label = %gb_used%
 
 [module/wlan]
 type = internal/network
@@ -274,29 +397,12 @@ label = %date% %time%
 [module/pulseaudio]
 type = internal/pulseaudio
 
-format-volume = <label-volume> <bar-volume>
-label-volume = VOL %percentage%%
+format-volume = <label-volume>
+label-volume =  %percentage%%
 label-volume-foreground = ${root.foreground}
 
 label-muted =  muted
 label-muted-foreground = #666
-
-bar-volume-width = 10
-bar-volume-foreground-0 = #55aa55
-bar-volume-foreground-1 = #55aa55
-bar-volume-foreground-2 = #55aa55
-bar-volume-foreground-3 = #55aa55
-bar-volume-foreground-4 = #55aa55
-bar-volume-foreground-5 = #f5a70a
-bar-volume-foreground-6 = #ff5555
-bar-volume-gradient = false
-bar-volume-indicator = |
-bar-volume-indicator-font = 2
-bar-volume-fill = ─
-bar-volume-fill-font = 2
-bar-volume-empty = ─
-bar-volume-empty-font = 2
-bar-volume-empty-foreground = ${colors.foreground-alt}
 
 [module/battery]
 type = internal/battery
@@ -370,10 +476,10 @@ menu-0-1-exec = menu-open-2
 menu-1-0 = cancel
 menu-1-0-exec = menu-open-0
 menu-1-1 = reboot
-menu-1-1-exec = sudo reboot
+menu-1-1-exec = reboot
 
 menu-2-0 = power off
-menu-2-0-exec = sudo poweroff
+menu-2-0-exec = poweroff
 menu-2-1 = cancel
 menu-2-1-exec = menu-open-0
 
@@ -386,7 +492,7 @@ screenchange-reload = true
 ;pseudo-transparency = false
 
 [global/wm]
-margin-top = 5
-margin-bottom = 5
+margin-top = 0
+margin-bottom = 0
 
 ; vim:ft=dosini

@@ -1,4 +1,4 @@
 configuration {
 	theme: "~/.config/rofi/onedark.rasi";
-    font: "JetBrains Mono 13";
+    font: "JetBrainsMono Nerd Font 13";
 }

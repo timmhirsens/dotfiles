@@ -38,5 +38,9 @@ let g:lightline = {
       \ }
 highlight Normal guibg=none
 
-nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
+nnoremap <leader>ff <cmd>lua require('telescope.builtin').git_files()<cr>
 
+lua << EOF
+require'lspconfig'.tsserver.setup{}
+require'lspconfig'.clangd.setup{}
+EOF

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 set -e
-file="/sys/devices/pci0000:00/0000:00:02.0/drm/card0/card0-eDP-1/intel_backlight/brightness"
+file="/sys/class/backlight/amdgpu_bl0/brightness"
 current=$(cat "$file")
 new="$current"
 

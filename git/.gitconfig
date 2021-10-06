@@ -1,7 +1,7 @@
 # Thanks Michael: https://info.michael-simons.eu/2018/06/25/use-different-git-usernames-and-emails-for-work-and-play/
-[includeIf "gitdir:~/work/"]
+[includeIf "gitdir:~/Work/"]
   path = .gitconfig-work
-[includeIf "gitdir:~/personal/"]
+[includeIf "gitdir:~/Personal/"]
   path = .gitconfig-play
 [includeIf "gitdir:~/"]
   path = .gitconfig-play
