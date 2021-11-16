@@ -30,6 +30,7 @@ Plug 'itchyny/lightline.vim'
 Plug 'neovim/nvim-lspconfig'
 Plug 'airblade/vim-gitgutter'
 Plug 'chrisbra/Colorizer'
+Plug 'vim-scripts/ReplaceWithRegister' 
 
 call plug#end()
 
