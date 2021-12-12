@@ -3,9 +3,10 @@
   path = .gitconfig-work
 [includeIf "gitdir:~/Personal/"]
   path = .gitconfig-play
-[includeIf "gitdir:~/"]
+[includeIf "gitdir:~/suckless/"]
   path = .gitconfig-play
-
+[includeIf "gitdir:~/.dotfiles/"]
+  path = .gitconfig-play
 [pager]
     diff = delta
     log = delta

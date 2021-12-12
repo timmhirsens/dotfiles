@@ -22,6 +22,7 @@ set showmode
 set NERDTree
 set commentary
 set easymotion
+
 " Don't use Ex mode, use Q for formatting.
 map Q gq
 
@@ -53,6 +54,19 @@ vnoremap ,a :action GotoAction <CR>
 " clear highlighting after searching
 nmap <esc><esc> :noh<CR>
 
-map <leader>f <Plug>(easymotion-s)
+" Leader
+nnoremap <SPACE> <Nop>
+let mapleader = " "
+
+map <leader>f <Action>(EditorCompleteStatement)
 map <leader>e <Plug>(easymotion-f)
 map <leader>r <Action>(RenameElement)
+
+" Show Intents
+map <leader>h <Action>(ShowIntentionActions)
+" Generate (g)
+map <leader>gc <Action>(GenerateConstructor)
+map <leader>ggs <Action>(GenerateGetterAndSetter)
+map <leader>gj <Action>(GenerateJavadoc)
+" Introduce (i)
+map <leader>iv <Action>(IntroduceVariable)

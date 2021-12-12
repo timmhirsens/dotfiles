@@ -38,6 +38,7 @@ exec --no-startup-id feh --bg-scale ~/Pictures/audibg.jpg
 exec --no-startup-id redshift-gtk
 exec --no-startup-id 1password --silent
 exec --no-startup-id polybar top
+exec --no-startup-id blueman-applet
 exec --no-startup-id xautolock -detectsleep -time 15 -locker '~/.config/i3/lock_screen.sh' &
 
 # Use pactl to adjust volume in PulseAudio.
@@ -189,7 +190,7 @@ bindsym $mod+r mode "resize"
 
 for_window [class="(?i)(?:1password)"] floating enable, focus
 
-for_window [class=".*"] border pixel 1
+for_window [class=".*"] border pixel 2
 
 assign [class="Slack"] 4
 assign [class="Microsoft Teams"] 4
