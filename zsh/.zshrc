@@ -80,3 +80,9 @@ eval "`fnm env`"
 export _JAVA_AWT_WM_NONREPARENTING=1
 
 pokemon-colorscripts -r 1
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/bin/terraform terraform
+
+export FLYCTL_INSTALL="/home/timm/.fly"
+export PATH="$FLYCTL_INSTALL/bin:$PATH"
