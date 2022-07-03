@@ -1,0 +1,19 @@
+#
+# wm independent hotkeys
+#
+
+# terminal emulator
+super + shift + Return
+	kitty
+
+# program launcher
+super + p
+    rofi -modi window,run,ssh,drun -show-icons -show drun -theme onedark
+
+# make sxhkd reload its configuration files:
+super + Escape
+	pkill -USR1 -x sxhkd
+
+super + shift + e
+    rofi -show power-menu -modi power-menu:rofi-power-menu
+
