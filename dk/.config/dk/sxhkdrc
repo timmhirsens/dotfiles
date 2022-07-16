@@ -11,6 +11,9 @@ super + Tab
 super + shift + e
     rofi -show power-menu -modi power-menu:rofi-power-menu -theme onedark
 
+super + period
+    rofi -modi emoji -show-icons -show emoji -theme onedark
+
 # terminal
 super + shift + Return
     alacritty
