@@ -108,10 +108,10 @@ fi
 	# rule class, instance, and title regexes (*ALWAYS* CASE INSENSITIVE)
 
 	# open window(s) on a specific workspace (assigned monitor)
-	dkcmd rule class="^gimp$" ws=2
-
-	# open window(s) on a monitor by number or name (active workspace on monitor)
-	dkcmd rule class="^chromium$" mon="HDMI-A-0"
+	dkcmd rule class="^jetbrains-idea$" ws=3
+	dkcmd rule class="^firefox$" ws=2
+	dkcmd rule class="^Slack$" ws=4
+	dkcmd rule class="^zoom$" ws=9
 
 	# open window(s) and use a callback function (user defined in config.h)
 	# we also ignore=true to stop the window from being resized on it's own from events
@@ -123,17 +123,6 @@ fi
 
 	# open window(s) with a specific geometry and coordinates (floating only!)
 	dkcmd rule class="^google-chrome$" title="^open files$" float=true w=1280 h=720
-
-	# open window(s) with sticky and floating enabled to view on all workspaces.
-	dkcmd rule class="^stickyterm$" stick=true float=true w=1280 h=720
-	dkcmd rule class="^scratchpad$" float=true
-
-	# focus window and workspace on opening
-	dkcmd rule class="^firefox$" ws=1 focus=true
-
-	# update or remove an existing rule with the same match patterns
-	dkcmd rule class="^firefox$" mon="HDMI-A-0"
-	dkcmd rule remove class="^firefox$"
 
 	# apply current rule set to all existing windows
 	dkcmd rule apply '*'

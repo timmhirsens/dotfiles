@@ -5,6 +5,9 @@
 super + p
     rofi -modi window,run,ssh,drun -show-icons -show drun -theme onedark
 
+super + Tab
+    rofi -modi windowcd,window -show-icons -show windowcd -theme onedark
+
 super + shift + e
     rofi -show power-menu -modi power-menu:rofi-power-menu -theme onedark
 
