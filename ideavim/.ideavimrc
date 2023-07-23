@@ -51,6 +51,14 @@ vnoremap cc :action CommentByLineComment <CR>
 nnoremap ,a :action GotoAction <CR>
 vnoremap ,a :action GotoAction <CR>
 
+" delete without yanking
+nnoremap <leader>d "_d
+vnoremap <leader>d "_d
+
+" replace currently selected text with default register
+" without yanking it
+vnoremap <leader>p "_dP
+
 " clear highlighting after searching
 nmap <esc><esc> :noh<CR>
 

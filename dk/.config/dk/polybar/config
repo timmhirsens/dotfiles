@@ -16,69 +16,36 @@
 ;==========================================================
 
 [colors]
-base = #24273a
-mantle = #1e2030
-crust = #181926
+;background = ${xrdb:color0:#222}
+background = #282c34
+background-alt = #353b45
+;foreground = ${xrdb:color7:#222}
+foreground = #abb2bf
+foreground-alt = #b6bdca
+primary = #61afef
+secondary = #c678dd
+alert = #e06c75
 
-text = #cad3f5
-subtext0 = #a5adcb
-subtext1 = #b8c0e0
+darkblue = #3e4451
+lightgray = #545862
+lightblueishgray = #565c64
+white = #abb2bf
+orange = #d19a66
+yellow = #e5c07b
+green = #98c379
+cyan = #56b6c2
+blue = #61afef
+magenta = #c678dd
+darkred = #be5046
 
-surface0 = #363a4f
-surface1 = #494d64
-surface2 = #5b6078
-
-overlay0 = #6e738d
-overlay1 = #8087a2
-overlay2 = #939ab7
-
-
-blue = #8aadf4
-lavender = #b7bdf8
-sapphire = #7dc4e4
-sky = #91d7e3
-teal = #8bd5ca
-green = #a6da95
-yellow = #eed49f
-peach = #f5a97f
-maroon = #ee99a0
-red = #ed8796
-mauve = #c6a0f6
-pink = #f5bde6
-flamingo = #f0c6c6
-rosewater = #f4dbd6
-
-transparent = #FF00000
-
-background = ${colors.base}
-background-alt = ${colors.mantle}
-foreground = ${colors.text}
-foreground-alt = ${colors.subtext0}
-primary = ${colors.mauve}
-secondary = ${colors.blue}
-alert = ${colors.red}
-
-darkblue = ${colors.sapphire}
-lightgray = ${colors.overlay2}
-lightblueishgray = ${colors.overlay1}
-white = ${colors.text}
-orange = ${colors.peach}
-# yellow = #e5c07b
-# green = #98c379
-cyan = ${colors.sky}
-# blue = #61afef
-magenta = ${colors.teal}
-darkred = ${colors.maroon}
-
-
-[bar/top]
+[bar/dk]
 ;monitor = ${env:MONITOR:HDMI-1}
 width = 100%
 height = 25
 ;offset-x = 1%
 ;offset-y = 1%
 radius = 0.0
-fixed-center = false
+fixed-center = true
 
 background = ${colors.background}
 foreground = ${colors.foreground}
@@ -98,22 +65,22 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 2
 
-font-0 = JetBrains Mono:pixelsize=9;1
-font-1 = Font Awesome 6 Free Solid:size=9:1 
-font-2 = Font Awesome 6 Free:size=9:1
-font-3 = Font Awesome 6 Brands:size=9:1
+font-0 = JetBrains Mono:pixelsize=10;1
+font-1 = Font Awesome 6 Free Solid:size=10:1 
+font-2 = Font Awesome 6 Free:size=10:1
+font-3 = Font Awesome 6 Brands:size=10:1
 
-modules-left = i3 xwindow
-modules-center = 
-modules-right = pulseaudio xkeyboard memory cpu system-cpu-frequency wlan eth battery temperature date
+modules-left = ewmh
+modules-center = xwindow
+modules-right = pulseaudio xkeyboard memory cpu wlan eth battery temperature date
 
 tray-position = right
 tray-padding = 2
 ;tray-background = #0063ff
 
-;wm-restack = generic
+wm-restack = generic
 ;wm-restack = bspwm
-wm-restack = i3
+
 
 ;override-redirect = true
 
@@ -128,9 +95,53 @@ cursor-scroll = ns-resize
 
 enable-ipc = true
 
+[module/ewmh]
+type = internal/xworkspaces
+label-monitor = %name%
+
+; Only show workspaces defined on the same output as the bar
+;
+; Useful if you want to show monitor specific workspaces
+; on different bars
+;
+; Default: false
+pin-workspaces = true
+
+; Create click handler used to focus desktop
+; Default: true
+enable-click = true
+format = <label-state>
+
+label-active = %name%
+label-active-padding = 1
+label-active-background = ${colors.background-alt}
+label-active-underline = ${colors.magenta}
+
+label-urgent = %name%
+label-urgent-padding = 1
+label-urgent-background = ${colors.darkred}
+label-urgent-underline = ${colors.alert}
+
+label-occupied = %name%
+label-occupied-padding = 1
+label-occupied-underline = ${colors.foreground}
+
+label-empty = %name%
+label-empty-padding = 1
+
+
+; Create scroll handlers used to cycle desktops
+; Default: true
+enable-scroll = false
+
+; Reverse the scroll direction
+; Default: false
+; New in version 3.6.0
+reverse-scroll = true
+
 [module/xwindow]
 type = internal/xwindow
-label = %title:0:120:...%
+label = %title:0:30:...%
 
 [module/xkeyboard]
 type = internal/xkeyboard
@@ -157,114 +168,6 @@ format-prefix = " "
 label-mounted = %{F#0a81f5}%mountpoint%%{F-}: %percentage_used%%
 label-unmounted = %mountpoint% not mounted
 label-unmounted-foreground = ${colors.foreground-alt}
-
-[module/i3]
-type = internal/i3
-format = <label-state> <label-mode>
-index-sort = true
-wrapping-scroll = false
-
-; Only show workspaces on the same output as the bar
-;pin-workspaces = true
-
-label-mode-padding = 1
-label-mode-foreground = #000
-label-mode-background = ${colors.primary}
-
-; focused = Active workspace on focused monitor
-label-focused = %name% %icon% 
-label-focused-background = ${colors.background-alt}
-label-focused-underline= ${colors.primary}
-label-focused-padding = 1
-
-; unfocused = Inactive workspace on any monitor
-label-unfocused = %name% %icon%
-label-unfocused-padding = 1
-
-; visible = Active workspace on unfocused monitor
-label-visible = %name% %icon%
-label-visible-background = ${self.label-focused-background}
-label-visible-underline = ${self.label-focused-underline}
-label-visible-padding = ${self.label-focused-padding}
-
-; urgent = Workspace with urgency hint set
-label-urgent = %name% %icon%
-label-urgent-background = ${colors.alert}
-label-urgent-padding = 1
-
-; Separator in between workspaces
-; label-separator = |
-ws-icon-0 = "1;"
-ws-icon-1 = "2;"
-ws-icon-2 = 3;
-ws-icon-3 = 4;
-ws-icon-4 = 5;
-ws-icon-5 = 6;
-ws-icon-6 = 7;
-ws-icon-7 = 8;
-ws-icon-8 = 9;
-ws-icon-9 = 10;
-ws-icon-default = 
-
-[module/bspwm]
-type = internal/bspwm
-pin-workspaces = true
-inline-mode = false
-enable-click = true
-enable-scroll = false
-reverse-scroll = false
-fuzzy-match = false
-; 
-; Available tags:
-;   <label-monitor>
-;   <label-state> - gets replaced with <label-(focused|urgent|occupied|empty)>
-;   <label-mode> - gets replaced with <label-(monocle|tiled|fullscreen|floating|locked|sticky|private)>
-; Default: <label-state>
-format = <label-state> <label-mode>
-
-label-mode-padding = 1
-label-mode-foreground = #000
-label-mode-background = ${colors.primary}
-
-; focused = Active workspace on focused monitor
-label-focused = %name% %icon% 
-label-focused-background = ${colors.background-alt}
-label-focused-underline= ${colors.primary}
-label-focused-padding = 1
-
-; unfocused = Inactive workspace on any monitor
-label-occupied = %name% %icon%
-label-occupied-padding = 1
-label-occupied-underline = ${colors.foreground-alt}
-
-; unfocused = Inactive workspace on any monitor
-label-empty = %name% %icon%
-label-empty-padding = 1
-
-; visible = Active workspace on unfocused monitor
-label-visible = %name% %icon%
-label-visible-background = ${self.label-focused-background}
-label-visible-underline = ${self.label-focused-underline}
-label-visible-padding = ${self.label-focused-padding}
-
-; urgent = Workspace with urgency hint set
-label-urgent = %name% %icon%
-label-urgent-background = ${colors.alert}
-label-urgent-padding = 1
-
-; Separator in between workspaces
-; label-separator = |
-ws-icon-0 = "1;"
-ws-icon-1 = "2;"
-ws-icon-2 = 3;
-ws-icon-3 = 4;
-ws-icon-4 = 5;
-ws-icon-5 = 6;
-ws-icon-6 = 7;
-ws-icon-7 = 8;
-ws-icon-8 = 9;
-ws-icon-9 = 10;
-ws-icon-default = 
 
 [module/mpd]
 type = internal/mpd
@@ -315,7 +218,7 @@ interval = 2
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = #4bffdc
-label = %gb_used%
+label = %percentage_used%%
 
 [module/wlan]
 type = internal/network
@@ -430,24 +333,34 @@ ramp-3 = 
 ramp-4 = 
 ramp-foreground = ${colors.foreground-alt}
 
-[module/ewmh]
-type = internal/xworkspaces
+[module/powermenu]
+type = custom/menu
 
-; Only show workspaces defined on the same output as the bar
-;
-; Useful if you want to show monitor specific workspaces
-; on different bars
-;
-; Default: false
-pin-workspaces = false
+expand-right = true
 
-; Create click handler used to focus desktop
-; Default: true
-enable-click = true
+format-spacing = 1
 
-; Create scroll handlers used to cycle desktops
-; Default: true
-enable-scroll = true
+label-open =  
+label-open-foreground = ${colors.secondary}
+label-close =  cancel
+label-close-foreground = ${colors.secondary}
+label-separator = |
+label-separator-foreground = ${colors.foreground-alt}
+
+menu-0-0 = reboot
+menu-0-0-exec = menu-open-1
+menu-0-1 = power off
+menu-0-1-exec = menu-open-2
+
+menu-1-0 = cancel
+menu-1-0-exec = menu-open-0
+menu-1-1 = reboot
+menu-1-1-exec = reboot
+
+menu-2-0 = power off
+menu-2-0-exec = poweroff
+menu-2-1 = cancel
+menu-2-1-exec = menu-open-0
 
 [settings]
 screenchange-reload = true
@@ -460,10 +373,5 @@ screenchange-reload = true
 [global/wm]
 margin-top = 0
 margin-bottom = 0
-
-[module/system-cpu-frequency]
-type = custom/script
-exec = ~/.config/polybar-scripts/polybar-scripts/system-cpu-frequency/system-cpu-frequency.sh
-interval = 10
 
 ; vim:ft=dosini

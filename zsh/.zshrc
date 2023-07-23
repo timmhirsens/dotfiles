@@ -3,7 +3,7 @@ export XDG_CONFIG_HOME=$HOME/.config
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/$HOME/.oh-my-zsh"
+export ZSH="/usr/share/oh-my-zsh"
 export TERMINAL="kitty"
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -31,12 +31,12 @@ eval "$(starship init zsh)"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 
-plugins=(git node gradle kubectl zsh-autosuggestions)
+plugins=(git node gradle kubectl zsh-autosuggestions ssh-agent)
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
-
+zstyle :omz:plugins:ssh-agent lazy yes
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
@@ -56,9 +56,10 @@ fi
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+alias cat="bat --theme=TwoDark --paging=never"
+alias i="idea"
 alias vim="nvim"
-alias bat="batcat --theme=TwoDark"
-alias cat="batcat --theme=TwoDark --paging=never"
+alias k="kubectl"
 # golang
 export PATH=$PATH:/usr/local/go/bin
 
@@ -79,10 +80,18 @@ eval "`fnm env`"
 
 export _JAVA_AWT_WM_NONREPARENTING=1
 
-pokemon-colorscripts -r 1
+pokemon-colorscripts -r 1 --no-title
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/bin/terraform terraform
 
 export FLYCTL_INSTALL="/home/timm/.fly"
 export PATH="$FLYCTL_INSTALL/bin:$PATH"
+. /opt/asdf-vm/asdf.sh
+
+# bun completions
+[ -s "/home/timm/.bun/_bun" ] && source "/home/timm/.bun/_bun"
+
+# Bun
+export BUN_INSTALL="/home/timm/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
