@@ -1,7 +1,7 @@
 #!/bin/bash  
 
 function run {
-    if ! pgrep $1 ;
+    if ! pgrep -f $1 ;
     then
         $@&
     fi
@@ -24,5 +24,6 @@ run xfce4-power-manager
 run blueman-applet
 
 run udiskie --tray
+run dunst
 
 xsetroot -cursor_name left_ptr &

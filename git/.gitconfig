@@ -21,3 +21,22 @@
 
 [pull]
 	rebase = true
+[push]
+	autoSetupRemote = true
+[alias]
+	append = town append
+	diff-parent = town diff-parent
+	hack = town hack
+	kill = town kill
+	new-pull-request = town new-pull-request
+	prepend = town prepend
+	prune-branches = town prune-branches
+	rename-branch = town rename-branch
+	repo = town repo
+	ship = town ship
+	sync = town sync
+    s = town switch
+[git-town]
+	code-hosting-driver = gitlab
+[core]
+	autocrlf = input

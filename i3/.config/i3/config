@@ -178,6 +178,7 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 for_window [class="(?i)(?:1password)"] floating enable, focus
+for_window [class="(?i)(?Blueman-manager)"] floating enable, focus
 
 for_window [class=".*"] border pixel 2
 
