@@ -46,9 +46,16 @@ return require('packer').startup(function(use)
     use('machakann/vim-highlightedyank');
     use {
         'nvim-lualine/lualine.nvim',
-        requires = { 'nvim-tree/nvim-web-devicons', opt = true }
+        requires = { 'nvim-tree/nvim-web-devicons' }
     };
     use('chrisbra/Colorizer');
     use('airblade/vim-gitgutter');
+    use {
+        'nvim-tree/nvim-tree.lua',
+        requires = {
+        'nvim-tree/nvim-web-devicons', -- optional
+        },
+    };
+
 }
 end)
